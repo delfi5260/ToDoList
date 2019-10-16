@@ -25,7 +25,7 @@ class TableViewController: UITableViewController {
         }
             let aletrAction1 = UIAlertAction(title: "Cancel", style: .default) // Кнопка ничего не возвращает работает как закрыть
         
- 
+            // Эта ветка ггвп
             let aletrAction2 = UIAlertAction(title: "Create", style: .cancel) { (alert) in
                 //Добавить новую запись
                let newItem = alertController.textFields![0].text
