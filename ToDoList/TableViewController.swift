@@ -25,21 +25,17 @@ class TableViewController: UITableViewController {
         }
             let aletrAction1 = UIAlertAction(title: "Cancel", style: .default) // Кнопка ничего не возвращает работает как закрыть
         
-            // Эта ветка ггвп
             let aletrAction2 = UIAlertAction(title: "Create", style: .cancel) { (alert) in
                 //Добавить новую запись
                let newItem = alertController.textFields![0].text
                addItem(nameItem: newItem!)
                 self.tableView.reloadData()
-                
         }
-            
             alertController.addAction(aletrAction1)
             alertController.addAction(aletrAction2)
             present(alertController, animated: false, completion: nil)
         
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,7 +112,6 @@ class TableViewController: UITableViewController {
             tableView.cellForRow(at: indexPath)?.textLabel?.alpha = 1
         }
     }
-   
     
     // Override to support rearranging the table view. В режиме Edit меняет строки местами
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
