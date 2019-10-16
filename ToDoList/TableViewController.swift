@@ -7,7 +7,7 @@
 //
 
 import UIKit
-// git test
+
 class TableViewController: UITableViewController {
     // Кномпка Eddit
     @IBAction func pushEditAction(_ sender: Any) {
@@ -21,7 +21,8 @@ class TableViewController: UITableViewController {
           let alertController =  UIAlertController(title: "Create new item", message: nil, preferredStyle: .alert)
             alertController.addTextField { (textField) in
                 textField.placeholder = "New item name" // Текст подсказка когдастрока пустая
-            }
+                
+        }
             let aletrAction1 = UIAlertAction(title: "Cancel", style: .default) // Кнопка ничего не возвращает работает как закрыть
         
  
@@ -30,36 +31,32 @@ class TableViewController: UITableViewController {
                let newItem = alertController.textFields![0].text
                addItem(nameItem: newItem!)
                 self.tableView.reloadData()
-            }
+                
+        }
             
             alertController.addAction(aletrAction1)
             alertController.addAction(aletrAction2)
             present(alertController, animated: false, completion: nil)
         
-            }
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView() // Убирает лишние пустые строки в таблице
         tableView.backgroundColor = UIColor.groupTableViewBackground // Задник таблицы слегка серый
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
     }
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return ToDoItems.count
     }
+    
     // Дейсвие со строкой
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
@@ -140,24 +137,5 @@ class TableViewController: UITableViewController {
        
         return false
     }
-    
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.des	ination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
